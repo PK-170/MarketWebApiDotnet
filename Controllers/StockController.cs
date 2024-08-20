@@ -16,6 +16,15 @@ namespace api.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
+
+        public IActionResult GetAll()
+        {
+            var stocks = _context.Stocks.ToList();
+            return Ok(stocks);
+        }
+
         
     }
 }
