@@ -25,6 +25,8 @@ namespace api.Controllers
             return Ok(stocks);
         }
 
+        [HttpGet("{id}")]
+
         
     }
 }
