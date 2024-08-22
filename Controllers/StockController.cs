@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Stock;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +38,15 @@ namespace api.Controllers
             return NotFound();
           }
           return Ok(stock.ToStockDto());
+        }
+
+        public IActionResult Create([FromRoute] CreateStockRequestDto stockDto){
+
+                  var stockModel = stockDto.ToStockFromCreateDto();
+                  _context.Stocks.Add(stockModel);
+                  _context.SaveChanges();
+                  return CreatedAtAction();
+
         }
         
     }
