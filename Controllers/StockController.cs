@@ -55,6 +55,8 @@ namespace api.Controllers
 
         public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto UpdateDto ){
 
+                     var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id);
+                     
         }
 
         
