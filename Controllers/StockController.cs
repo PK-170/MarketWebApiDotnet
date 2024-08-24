@@ -40,6 +40,7 @@ namespace api.Controllers
           return Ok(stock.ToStockDto());
         }
 
+        [HttpPost]
         public IActionResult Create([FromRoute] CreateStockRequestDto stockDto){
 
                   var stockModel = stockDto.ToStockFromCreateDto();
