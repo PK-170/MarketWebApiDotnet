@@ -45,7 +45,7 @@ namespace api.Controllers
                   var stockModel = stockDto.ToStockFromCreateDto();
                   _context.Stocks.Add(stockModel);
                   _context.SaveChanges();
-                  return CreatedAtAction();
+                  return CreatedAtAction(nameof(GetById), new {id = stockModel.Id}, stockModel.ToStockDto());
 
         }
         
