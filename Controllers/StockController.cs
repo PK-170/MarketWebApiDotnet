@@ -41,7 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromRoute] CreateStockRequestDto stockDto){
+        public IActionResult Create([FromBody] CreateStockRequestDto stockDto){
 
                   var stockModel = stockDto.ToStockFromCreateDto();
                   _context.Stocks.Add(stockModel);
@@ -53,8 +53,8 @@ namespace api.Controllers
         [HttpPut]
         [Route("{id}")]
 
-        public IActionResult Update(){
-          
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto UpdateDto ){
+
         }
 
         
