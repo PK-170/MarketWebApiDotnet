@@ -53,12 +53,15 @@ namespace api.Controllers
         [HttpPut]
         [Route("{id}")]
 
-        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto UpdateDto ){
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto ){
 
                      var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id);
                      if (stockModel == null){
                           return NotFound();
                      }
+                      stockModel.Symbol = updateDto.Symbol;
+                      stockModel.CompanyName = updateDto.CompanyName;
+
 
         }
 
