@@ -63,7 +63,8 @@ namespace api.Controllers
                       stockModel.CompanyName = updateDto.CompanyName;
                       stockModel.Purchase = updateDto.Purchase;
                       stockModel.LastDiv = updateDto.LastDiv;
-                      
+                      stockModel.Industry = updateDto.Industry;
+                      stockModel.MarketCap = updateDto.MarketCap;
 
 
         }
