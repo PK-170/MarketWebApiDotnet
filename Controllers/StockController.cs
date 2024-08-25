@@ -66,7 +66,8 @@ namespace api.Controllers
                       stockModel.Industry = updateDto.Industry;
                       stockModel.MarketCap = updateDto.MarketCap;
 
-
+                      _context.SaveChanges();
+                      return Ok(stockModel.ToStockDto());
         }
 
         
