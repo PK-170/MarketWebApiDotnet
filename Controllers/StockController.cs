@@ -61,6 +61,9 @@ namespace api.Controllers
                      }
                       stockModel.Symbol = updateDto.Symbol;
                       stockModel.CompanyName = updateDto.CompanyName;
+                      stockModel.Purchase = updateDto.Purchase;
+                      stockModel.LastDiv = updateDto.LastDiv;
+                      
 
 
         }
