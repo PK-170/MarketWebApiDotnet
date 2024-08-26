@@ -76,6 +76,9 @@ namespace api.Controllers
           public IActionResult Delete([FromRoute] int id){
 
             var stockModel = _context.Stocks.FirstOrDefault(x=>x.Id == id);
+            if(stockModel == null){
+              return NotFound();
+            }
 
           }
         
