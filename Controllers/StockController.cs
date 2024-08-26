@@ -80,6 +80,10 @@ namespace api.Controllers
               return NotFound();
             }
 
+            _context.Remove(stockModel);
+            _context.SaveChanges();
+            return NoContent();
+
           }
         
     }
