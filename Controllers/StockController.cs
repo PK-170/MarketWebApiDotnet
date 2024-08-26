@@ -70,7 +70,9 @@ namespace api.Controllers
                       return Ok(stockModel.ToStockDto());
         }
 
-        
+          [HttpDelete]
+          [Route("{id}")]
+
 
         
     }
