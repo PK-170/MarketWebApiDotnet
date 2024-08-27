@@ -41,7 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateStockRequestDto stockDto){
+        public async Task<IActionResult> Create([FromBody] CreateStockRequestDto stockDto){
 
                   var stockModel = stockDto.ToStockFromCreateDto();
                   _context.Stocks.Add(stockModel);
