@@ -74,7 +74,7 @@ namespace api.Controllers
           [HttpDelete]
           [Route("{id}")]
 
-          public IActionResult Delete([FromRoute] int id){
+          public async Task<IActionResult> Delete([FromRoute] int id){
 
             var stockModel = _context.Stocks.FirstOrDefault(x=>x.Id == id);
             if(stockModel == null){
