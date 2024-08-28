@@ -22,10 +22,10 @@ namespace api.Controllers
 
         [HttpGet]
 
-        public IActionResult GetAll()
+        public async IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList()
-            .Select(s => s.ToStockDto());
+            var stocks = await _context.Stocks.ToListAsync();
+            var stockDto = stocks.Select(s => s.ToStockDto());
             return Ok(stocks);
         }
 
