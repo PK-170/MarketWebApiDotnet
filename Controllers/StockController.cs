@@ -22,7 +22,7 @@ namespace api.Controllers
 
         [HttpGet]
 
-        public async IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var stocks = await _context.Stocks.ToListAsync();
             var stockDto = stocks.Select(s => s.ToStockDto());
