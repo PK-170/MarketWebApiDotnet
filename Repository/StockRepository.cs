@@ -38,7 +38,7 @@ namespace api.Repository
 
         }
 
-        public Task<List<Stock>> GetAllAsync(){
+        public async Task<List<Stock>> GetAllAsync(){
 
             return _context.Stocks.ToListAsync();
         }
