@@ -43,9 +43,10 @@ namespace api.Repository
             return await _context.Stocks.ToListAsync();
         }
 
-        public Task<Stock> GetByIdAsync(int id)
+        public async Task<Stock?> GetByIdAsync(int id)
         {
-            return _context.Stocks.FindAsync(id);
+            return await _context.Stocks.FindAsync(id);
+            
         }
 
         public Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
