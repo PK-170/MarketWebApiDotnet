@@ -59,11 +59,12 @@ namespace api.Repository
                       existingStock.Symbol = stockDto.Symbol;
                       existingStock.CompanyName = stockDto.CompanyName;
                       existingStock.Purchase = stockDto.Purchase;
-                      stockModel.LastDiv = updateDto.LastDiv;
-                      stockModel.Industry = updateDto.Industry;
-                      stockModel.MarketCap = updateDto.MarketCap;
+                      existingStock.LastDiv = stockDto.LastDiv;
+                      existingStock.Industry = stockDto.Industry;
+                      existingStock.MarketCap = stockDto.MarketCap;
 
                       await _context.SaveChangesAsync();
+                      return existingStock;
         }
     }
 }
