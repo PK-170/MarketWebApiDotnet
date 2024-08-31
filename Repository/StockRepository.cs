@@ -45,7 +45,7 @@ namespace api.Repository
 
         public Task<Stock> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _context.Stocks.FindAsync(id);
         }
 
         public Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
