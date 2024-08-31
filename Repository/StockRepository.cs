@@ -49,14 +49,21 @@ namespace api.Repository
             
         }
 
-        public Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
+        public async Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
         {
-            var existingStock = _context.Stocks.FirstOrDefaultAsync(x=>x.Id == id);
+            var existingStock = await _context.Stocks.FirstOrDefaultAsync(x=>x.Id == id);
             if(existingStock == null){
                 return null;
             }
 
-            
+                      existingStock.Symbol = stockDto.Symbol;
+                      existingStock.CompanyName = stockDto.CompanyName;
+                      existingStock.Purchase = stockDto.Purchase;
+                      stockModel.LastDiv = updateDto.LastDiv;
+                      stockModel.Industry = updateDto.Industry;
+                      stockModel.MarketCap = updateDto.MarketCap;
+
+                      await _context.SaveChangesAsync();
         }
     }
 }
