@@ -63,7 +63,6 @@ namespace api.Controllers
                           return NotFound();
                      }
 
-                      await _context.SaveChangesAsync();
                       return Ok(stockModel.ToStockDto());
         }
 
