@@ -16,6 +16,11 @@ namespace api.Controllers
         {
             _commentRepo = commentRepo;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll(){
+            return 
+        }
         
     }
 }
