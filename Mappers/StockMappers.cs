@@ -19,7 +19,8 @@ namespace api.Mappers
                Purchase = stockModel.Purchase,
                LastDiv = stockModel.LastDiv,
                Industry = stockModel.Industry,
-               MarketCap = stockModel.MarketCap
+               MarketCap = stockModel.MarketCap,
+               Comments = stockModel.comments.Select(c=> c.ToCommentDto()).ToList()
             };
 
         }
@@ -27,7 +28,7 @@ namespace api.Mappers
         public static Stock ToStockFromCreateDto(this CreateStockRequestDto stockDto){
             return new Stock
             {
-                Symbol = stockDto.Symbol,
+               Symbol = stockDto.Symbol,
                CompanyName = stockDto.CompanyName,
                Purchase = stockDto.Purchase,
                LastDiv = stockDto.LastDiv,
