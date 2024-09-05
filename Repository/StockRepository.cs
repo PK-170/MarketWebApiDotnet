@@ -40,7 +40,7 @@ namespace api.Repository
 
         public async Task<List<Stock>> GetAllAsync(){
 
-            return await _context.Stocks.ToListAsync();
+            return await _context.Stocks.Include(s=>s.comments).ToListAsync();
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
