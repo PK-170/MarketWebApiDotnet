@@ -49,7 +49,8 @@ namespace api.Controllers
                         return BadRequest("stock does not exist");
                      }
 
-                     var commentModel = commentDto
+                     var commentModel = commentDto.ToCommentFromCreate(stockId);
+                     await _commentRepo.CreateAsync();
                   
         }
 
