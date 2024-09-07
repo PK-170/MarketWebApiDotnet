@@ -48,6 +48,8 @@ namespace api.Controllers
                      if(! await _stockRepo.StockExists(stockId)){
                         return BadRequest("stock does not exist");
                      }
+
+                     var commentModel = commentDto
                   
         }
 
