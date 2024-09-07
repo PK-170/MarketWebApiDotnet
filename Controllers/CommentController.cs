@@ -44,7 +44,10 @@ namespace api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create([FromRoute] int stockId, CreateCommentDto commentDto){
-
+             
+                     if(! await _stockRepo.StockExists(stockId)){
+                        return BadRequest("stock does not exist");
+                     }
                   
         }
 
