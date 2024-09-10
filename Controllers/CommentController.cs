@@ -57,9 +57,9 @@ namespace api.Controllers
 
         [HttpPut]
         [Route ("{id}")]
-        public async Task<IActionResult> Update(){
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateCommentRequestDto updateDto){
 
-            
+
         }
 
     
