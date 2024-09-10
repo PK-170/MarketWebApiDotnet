@@ -55,6 +55,13 @@ namespace api.Controllers
                   
         }
 
+        [HttpPut]
+        [Route ("{id}")]
+        public async Task<IActionResult> Update(){
+
+            
+        }
+
     
     }
 }
