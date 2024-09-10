@@ -32,7 +32,7 @@ namespace api.Controllers
 
         [HttpGet ("{id}")]
 
-        public async Task<IActionResult> GetByIdAsync([FromRoute] int id){
+        public async Task<IActionResult> GetById([FromRoute] int id){
 
                var comment = await _commentRepo.GetByIdAsync(id);
                if(comment == null){
@@ -51,7 +51,7 @@ namespace api.Controllers
 
                      var commentModel = commentDto.ToCommentFromCreate(stockId);
                      await _commentRepo.CreateAsync(commentModel);
-                     return CreatedAtAction(nameof(GetByIdAsync), new {id = commentModel}, commentModel.ToCommentDto());
+                     return CreatedAtAction(nameof(GetById), new {id = commentModel}, commentModel.ToCommentDto());
                   
         }
 
