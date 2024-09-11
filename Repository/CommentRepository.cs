@@ -45,6 +45,9 @@ namespace api.Repository
             existingComment.Title = commentModel.Title;
             existingComment.Content = commentModel.Content;
 
+            await _context.SaveChangesAsync();
+            return existingComment;
+
         }
     }
 }
