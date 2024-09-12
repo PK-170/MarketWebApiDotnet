@@ -31,13 +31,12 @@ namespace api.Mappers
         }
 
 
-        public static Comment ToCommentFromUpdate(this CreateCommentDto commentDto, int stockId){
+        public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto commentDto){
 
             return new Comment
             {
                 Title = commentDto.Title,
-                Content = commentDto.Content,
-                StockId = stockId,
+                Content = commentDto.Content
             };
 
         }
