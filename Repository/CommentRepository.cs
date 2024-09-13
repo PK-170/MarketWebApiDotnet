@@ -32,6 +32,10 @@ namespace api.Repository
            if(commentModel == null){
             return null;
            }
+           _context.Comments.Remove(commentModel);
+           await _context.SaveChangesAsync();
+           return commentModel;
+
         }
 
         public async Task<List<Comment>> GetAllAsync()
