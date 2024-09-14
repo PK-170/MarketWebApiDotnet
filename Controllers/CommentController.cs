@@ -72,7 +72,8 @@ namespace api.Controllers
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id){
-
+                  
+                  var commentModel = await _commentRepo.DeleteAsync(id);
         }
     
     }
