@@ -10,6 +10,7 @@ namespace api.Dtos.Comment
     {
         [Required]
         [MinLength(5,ErrorMessage = "Title must be 5 characters")]
+        [MaxLength(280, ErrorMessage = "Title cannot be max than 280 characters")]
           public string Title { get; set; } = string.Empty;
           public string Content { get; set; } = string.Empty;
 
