@@ -20,7 +20,13 @@ namespace api.Dtos.Stock
         [Required]
         [Range(1,1000000000)]
         public decimal Purchase { get; set; }
+
+        [Required]
+        [Range(0.001,100)]
         public decimal LastDiv { get; set; }
+
+        [Required]
+        [MaxLength(10, ErrorMessage ="the Industry canot be more than 10 character")]
 
         public string Industry { get; set; } = string.Empty;
         public long MarketCap { get; set; }
