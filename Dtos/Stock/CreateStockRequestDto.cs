@@ -29,6 +29,9 @@ namespace api.Dtos.Stock
         [MaxLength(10, ErrorMessage ="the Industry canot be more than 10 character")]
 
         public string Industry { get; set; } = string.Empty;
+
+        [Required]
+        [Range(1,5000000000)]
         public long MarketCap { get; set; }
     }
 }
