@@ -86,6 +86,9 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id){
                   
+                  if(!ModelState.IsValid){
+                    return BadRequest(ModelState);
+                  }
                   var commentModel = await _commentRepo.DeleteAsync(id);
                   if(commentModel == null){
                     return NotFound("comment does not exist");
