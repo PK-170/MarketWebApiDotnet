@@ -83,6 +83,9 @@ namespace api.Controllers
 
           public async Task<IActionResult> Delete([FromRoute] int id){
 
+            if(!ModelState.IsValid){
+            return BadRequest(ModelState);
+              }
             var stockModel = await _stockRepo.DeleteAsync(id);
             if(stockModel == null){
               return NotFound();
