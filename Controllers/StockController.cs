@@ -52,7 +52,10 @@ namespace api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStockRequestDto stockDto){
-
+                  
+                  if(!ModelState.IsValid){
+                         return BadRequest(ModelState);
+                 }
                   var stockModel = stockDto.ToStockFromCreateDto();
                   await _stockRepo.CreateAsync(stockModel);
                   return CreatedAtAction(nameof(GetById), new {id = stockModel.Id}, stockModel.ToStockDto());
@@ -64,6 +67,9 @@ namespace api.Controllers
 
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto ){
 
+                     if(!ModelState.IsValid){
+                      return BadRequest(ModelState);
+                      }
                      var stockModel = await _stockRepo.UpdateAsync(id, updateDto);
                      if (stockModel == null){
                           return NotFound();
