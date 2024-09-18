@@ -43,6 +43,7 @@ namespace api.Repository
 
             var stocks = _context.Stocks.Include(s=>s.comments).ToListAsync();
             
+            if(!string.IsNullOrWhiteSpace(query.CompanyName));
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
