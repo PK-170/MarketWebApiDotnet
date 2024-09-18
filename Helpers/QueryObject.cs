@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace api.Helpers
 {
-    public class QueryObjects
+    public class QueryObject
     {
         
         public string? Symbol { get; set; } = null;
