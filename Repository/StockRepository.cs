@@ -46,6 +46,9 @@ namespace api.Repository
             if(!string.IsNullOrWhiteSpace(query.CompanyName)){
                 stocks = stocks.Where(s=>s.CompanyName.Contains(query.CompanyName));
             }
+            if(!string.IsNullOrWhiteSpace(query.Symbol)){
+                stocks = stocks.Where(s=>s.Symbol.Contains(query.Symbol));
+            }
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
