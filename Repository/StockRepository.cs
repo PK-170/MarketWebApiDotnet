@@ -56,6 +56,8 @@ namespace api.Repository
 
             }
 
+            var skipNumber = (query.PageNumber - 1) * query.PageSize;
+
             return await stocks.ToListAsync();
         }
 
