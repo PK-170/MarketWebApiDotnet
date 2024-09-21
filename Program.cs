@@ -23,7 +23,7 @@ builder.Services.AddDbContext<ApplicationDBContext>((Options)=>{
 });
 
 builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>{
-
+  Options.Password.RequireDigit = true;
 }
 
 );
