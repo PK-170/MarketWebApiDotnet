@@ -27,9 +27,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>{
   Options.Password.RequireLowercase = true;
   Options.Password.RequireUppercase = true;
   Options.Password.RequireNonAlphanumeric = true;
-}
+  Options.Password.RequiredLength = 12;
+})
+.AddEntityFrameworkStores<ApplicationDBContext>();
 
-);
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
