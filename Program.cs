@@ -31,6 +31,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>{
 })
 .AddEntityFrameworkStores<ApplicationDBContext>();
 
+builder.Services.AddAuthentication(Options => {
+
+});
+
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
