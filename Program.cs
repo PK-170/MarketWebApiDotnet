@@ -2,6 +2,7 @@ using api.Data;
 using api.Interfaces;
 using api.Models;
 using api.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -32,6 +33,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>{
 .AddEntityFrameworkStores<ApplicationDBContext>();
 
 builder.Services.AddAuthentication(Options => {
+  Options.DefaultAuthenticateScheme =
+  Options.DefaultChallengeScheme = 
+  Options.DefaultForbidScheme =
+  Options.DefaultScheme = 
+  Options.DefaultSignInScheme = 
+  Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
 
 });
 
