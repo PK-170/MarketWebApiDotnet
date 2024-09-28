@@ -47,9 +47,12 @@ builder.Services.AddAuthentication(Options => {
        ValidIssuer = builder.Configuration["JWT:Issuer"],
        ValidateAudience = true,
        ValidAudience = builder.Configuration["JWT:Audience"],
-       
+       ValidateIssuerSigningKey = true,
+       IssuerSigningKey = new SymmetricSecurityKey(
+         System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
+       )
 
-   }
+   };
 });
 
 builder.Services.AddScoped<IStockRepository, StockRepository>();
@@ -65,6 +68,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 
