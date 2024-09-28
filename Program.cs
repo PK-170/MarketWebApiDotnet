@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,12 @@ builder.Services.AddAuthentication(Options => {
   Options.DefaultSignInScheme = 
   Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
 
+}).AddJwtBearer(Options =>{
+   Options.TokenValidationParameters = new TokenValidationParameters{
+       ValidateIssuer = true,
+       ValidIssuer = builder.Configuration["JWT:Issuer"]
+
+   }
 });
 
 builder.Services.AddScoped<IStockRepository, StockRepository>();
