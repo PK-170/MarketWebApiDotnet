@@ -24,7 +24,8 @@ builder.Services.AddDbContext<ApplicationDBContext>((Options)=>{
   Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>{
+builder.Services.AddIdentity<AppUser, IdentityRole>( Options=>
+{
   Options.Password.RequireDigit = true;
   Options.Password.RequireLowercase = true;
   Options.Password.RequireUppercase = true;
@@ -41,8 +42,10 @@ builder.Services.AddAuthentication(Options => {
   Options.DefaultSignInScheme = 
   Options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
 
-}).AddJwtBearer(Options =>{
-   Options.TokenValidationParameters = new TokenValidationParameters{
+}).AddJwtBearer(Options =>
+{
+      Options.TokenValidationParameters = new TokenValidationParameters
+      {
        ValidateIssuer = true,
        ValidIssuer = builder.Configuration["JWT:Issuer"],
        ValidateAudience = true,
