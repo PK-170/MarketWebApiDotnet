@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
+    [Route ("Api/account]")]
+    [ApiController]
+
     public class AccountController: ControllerBase
     {
         
