@@ -33,7 +33,20 @@ namespace api.Controllers
                     Email = registerDto.Email,
                 };
                 var createUser = await _userManager.CreateAsync(appUser, registerDto.Password);
-                
+                if(createUser.Succeeded)
+                {
+                    var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
+                    if(roleResult.Succeeded)
+                    {
+                        return Ok("User Created");
+                    }else
+                    {
+                        return StatusCode(500, roleResult.Errors);
+                    }
+                }else
+                {
+                    
+                }
 
               }catch(Exception e)
               {
