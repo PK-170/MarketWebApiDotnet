@@ -23,7 +23,22 @@ namespace api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
-              
+              try
+              {
+                if(!ModelState.IsValid)
+                   return BadRequest(ModelState);
+                var appUser = new AppUser
+                {
+                    UserName = registerDto.UserName,
+                    Email = registerDto.Email,
+                };
+                var createUser = await _userManager.CreateAsync(appUser, registerDto.Password);
+                
+
+              }catch(Exception e)
+              {
+
+              }
          }
 
     }
