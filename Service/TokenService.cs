@@ -28,7 +28,16 @@ namespace api.Service
                new Claim(JwtRegisteredClaimNames.GivenName, user.UserName)
             };
             var crads = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);
+            
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = crads,
+                Issuer = _config["JWT:Issuer"],
+                Audience = _config["JWT:Audience"]
 
+            };
         }
     }
 }
