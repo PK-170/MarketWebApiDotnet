@@ -38,6 +38,11 @@ namespace api.Service
                 Audience = _config["JWT:Audience"]
 
             };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+
         }
     }
 }
