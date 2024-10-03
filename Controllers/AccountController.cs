@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-    [Route ("Api/account]")]
+    [Route ("api/account")]
     [ApiController]
 
     public class AccountController: ControllerBase
@@ -30,10 +30,10 @@ namespace api.Controllers
                 var appUser = new AppUser
                 {
                     UserName = registerDto.UserName,
-                    Email = registerDto.Email,
+                    Email = registerDto.Email
                 };
-                var createUser = await _userManager.CreateAsync(appUser, registerDto.Password);
-                if(createUser.Succeeded)
+                var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
+                if(createdUser.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
                     if(roleResult.Succeeded)
@@ -45,12 +45,12 @@ namespace api.Controllers
                     }
                 }else
                 {
-                    
+                    return StatusCode(500, createdUser.Errors);
                 }
 
               }catch(Exception e)
               {
-
+                  return StatusCode(500, e);
               }
          }
 
