@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using api.Interfaces;
@@ -20,7 +22,13 @@ namespace api.Service
         }
         public string CreateToken(AppUser user)
         {
-            
+            var claims = new List<Claim>
+            {
+               new Claim(JwtRegisteredClaimNames.Email, user.Email),
+               new Claim(JwtRegisteredClaimNames.GivenName, user.UserName)
+            };
+            var crads = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);
+
         }
     }
 }
