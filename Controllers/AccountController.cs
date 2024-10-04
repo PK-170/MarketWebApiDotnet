@@ -7,6 +7,7 @@ using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -31,6 +32,9 @@ namespace api.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(x=>x.UserName == loginDto.UserName);
+            
 
         }
 
