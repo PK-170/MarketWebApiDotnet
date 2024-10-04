@@ -34,7 +34,8 @@ namespace api.Controllers
             }
 
             var user = await _userManager.Users.FirstOrDefaultAsync(x=>x.UserName == loginDto.UserName);
-            
+
+            if (user == null) return Unauthorized("Invalid Username!");
 
         }
 
