@@ -142,3 +142,9 @@ C:\Users\Admin\Desktop\MarketWebApi\api\obj\Debug\net8.0\refint\api.dll
 C:\Users\Admin\Desktop\MarketWebApi\api\obj\Debug\net8.0\api.pdb
 C:\Users\Admin\Desktop\MarketWebApi\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\Admin\Desktop\MarketWebApi\api\obj\Debug\net8.0\ref\api.dll
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\angular.json
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\package-lock.json
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\package.json
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\tsconfig.app.json
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\tsconfig.json
+C:\Users\Admin\Desktop\MarketWebApi\api\bin\Debug\net8.0\frontend\tsconfig.spec.json
