@@ -2,4 +2,5 @@
 * I have used Angular for front end
 * User can create a stock, get all the stocks in the database.
 * User can update a stock using the stock Id
+* User can get a stock using the stock Id
 
